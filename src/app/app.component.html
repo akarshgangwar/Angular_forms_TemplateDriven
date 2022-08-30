@@ -1,28 +1,33 @@
 <h2 class="text-3xl font-bold ">Template driven Form</h2>
 <div class="border flex flex-col  rounded-lg  border-zinc-800 w-1/3 my-5  m-auto ">
   <h1 class="text-3xl font-bold text-center my-2 ">Registration Form</h1>
-<form>
+<form #signUpForm="ngForm" (ngSubmit)="siginUp(signUpForm)">
 <div class="form-area  w-10/12 m-auto my-10 space-y-5">
   <div class="flex m-1 justify-between ">
     <label for="username">Name</label>
-    <input class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+    <input name="name" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
   </div>
   <!-- <small class="validation-error ml-1 text-rose-500">Invalid</small> -->
-  
+  <div  class="flex justify-between m-1">
+    <label for="email">Email</label>
+    <input name="email" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Email">
+  </div>
+
   <div  class="flex justify-between m-1">
     <label for="password">Password</label>
-    <input class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
+    <input name="password" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
   </div>
   
   <div class="flex justify-between m-1 ">
     <label for="Confirm">Confirm Password</label>
-    <input class="outline outline-1 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
+    <input name="confirmPassword" ngModel  class="outline outline-1 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
   </div>
   
   <div  class="flex m-1 justify-between ">
     <label for="Gender" class="">Gender</label>
     <div class=" px-8 ">
     <input class="px-2"
+    name="gender" ngModel 
         type="radio"
         name="gender"
         value="male"
@@ -30,6 +35,7 @@
       />
       <label class="pr-2"> Male</label>
       <input class="px-2 "
+      name="gender" ngModel 
         type="radio"
         name="gender"
         value="Female"
@@ -40,7 +46,7 @@
   </div>
   <div>
     <input type="checkbox">
-    <label class ="m-1">Agree all terms and conditions</label>
+    <label name="terms" ngModel  class ="m-1">Agree all terms and conditions</label>
   </div>
   <button type="submit" class =" px-2  ml-32 outline">Submit</button>
 </div>
