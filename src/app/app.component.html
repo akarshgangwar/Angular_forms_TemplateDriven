@@ -1,32 +1,34 @@
-<h2 class="text-3xl font-bold ">Template driven Form</h2>
-<div class="border flex flex-col  rounded-lg  border-zinc-800 w-1/3 my-5  m-auto ">
+<p>{{signUpForm.value | json}}</p>
+<h2 class="text-3xl font-bold absolute bottom-9 right-5 ">Template driven</h2>
+<div class="border flex flex-col  rounded-lg  border-zinc-800 w-1/3 my-8  m-auto ">
   <h1 class="text-3xl font-bold text-center my-2 ">Registration Form</h1>
 <form #signUpForm="ngForm" (ngSubmit)="siginUp(signUpForm)">
 <div class="form-area  w-10/12 m-auto my-10 space-y-5">
   <div class="flex m-1 justify-between ">
-    <label for="username">Name</label>
-    <input name="name" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+    <label for="username">Name*</label>
+    <input required name="name" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+
   </div>
   <!-- <small class="validation-error ml-1 text-rose-500">Invalid</small> -->
   <div  class="flex justify-between m-1">
-    <label for="email">Email</label>
-    <input name="email" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Email">
+    <label for="email">Email*</label>
+    <input type="email" required name="email" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Email">
   </div>
 
   <div  class="flex justify-between m-1">
-    <label for="password">Password</label>
-    <input name="password" ngModel class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
+    <label for="password">Password*</label>
+    <input required name="password" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
   </div>
   
   <div class="flex justify-between m-1 ">
-    <label for="Confirm">Confirm Password</label>
-    <input name="confirmPassword" ngModel  class="outline outline-1 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
+    <label for="Confirm">Confirm Password*</label>
+    <input required name="confirmPassword" ngModel  class="outline outline-1 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
   </div>
   
   <div  class="flex m-1 justify-between ">
-    <label for="Gender" class="">Gender</label>
+    <label for="Gender" class="">Gender*</label>
     <div class=" px-8 ">
-    <input class="px-2"
+    <input required class="px-2"
     name="gender" ngModel 
         type="radio"
         name="gender"
@@ -45,10 +47,10 @@
     </div>
   </div>
   <div>
-    <input type="checkbox">
-    <label name="terms" ngModel  class ="m-1">Agree all terms and conditions</label>
+    <input type="checkbox"  required name="terms" ngModel >
+    <label class ="ml-2">Agree all terms and conditions*</label>
   </div>
-  <button type="submit" class =" px-2  ml-32 outline">Submit</button>
+  <button type="submit" class =" px-2  ml-32 outline  disabled:bg-gray-400 disabled:opacity-100 disabled:outline-1 enabled:hover:bg-sky-700" [disabled]="!signUpForm.valid">Submit</button>
 </div>
 </form>
 
