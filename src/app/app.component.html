@@ -1,1 +1,49 @@
-<h2 class="text-3xl font-bold underline">Template driven Form</h2>
+<h2 class="text-3xl font-bold ">Template driven Form</h2>
+<div class="border flex flex-col  rounded-lg  border-zinc-800 w-1/3 my-5  m-auto ">
+  <h1 class="text-3xl font-bold text-center my-2 ">Registration Form</h1>
+<form>
+<div class="form-area  w-10/12 m-auto my-10 space-y-5">
+  <div class="flex m-1 justify-between ">
+    <label for="username">Name</label>
+    <input class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+  </div>
+  <!-- <small class="validation-error ml-1 text-rose-500">Invalid</small> -->
+  
+  <div  class="flex justify-between m-1">
+    <label for="password">Password</label>
+    <input class="outline rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
+  </div>
+  
+  <div class="flex justify-between m-1 ">
+    <label for="Confirm">Confirm Password</label>
+    <input class="outline outline-1 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
+  </div>
+  
+  <div  class="flex m-1 justify-between ">
+    <label for="Gender" class="">Gender</label>
+    <div class=" px-8 ">
+    <input class="px-2"
+        type="radio"
+        name="gender"
+        value="male"
+        checked="checked"
+      />
+      <label class="pr-2"> Male</label>
+      <input class="px-2 "
+        type="radio"
+        name="gender"
+        value="Female"
+       
+      />
+      <label> Female</label>
+    </div>
+  </div>
+  <div>
+    <input type="checkbox">
+    <label class ="m-1">Agree all terms and conditions</label>
+  </div>
+  <button type="submit" class =" px-2  ml-32 outline">Submit</button>
+</div>
+</form>
+
+</div>
