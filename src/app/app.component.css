@@ -2,3 +2,6 @@ input.ng-touched.ng-invalid{
   
   outline-color: red;  
 }
+.validation-error{
+    color: crimson;
+}

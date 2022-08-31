@@ -6,24 +6,38 @@
 <div class="form-area  w-10/12 m-auto my-10 space-y-5">
   <div class="flex m-1 justify-between ">
     <label for="username">Name*</label>
-    <input required name="name" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+    <input required name="name" #name="ngModel" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Name">
+<!-- <p>{{ signUpForm.form.controls?.['name']?.errors?.['touched']}}</p> -->
 
   </div>
-  <!-- <small class="validation-error ml-1 text-rose-500">Invalid</small> -->
+
+  <small *ngIf="signUpForm.form.controls?.['name']?.errors?.['required'] && signUpForm.form.controls?.['name']?.['touched']"
+  class="validation-error">name is required</small>
+
   <div  class="flex justify-between m-1">
     <label for="email">Email*</label>
     <input type="email" required name="email" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Email">
   </div>
 
+  <small *ngIf="signUpForm.form.controls?.['email']?.errors?.['required'] && signUpForm.form.controls?.['email']?.['touched']"
+  class="validation-error">Email is required</small>
+
   <div  class="flex justify-between m-1">
     <label for="password">Password*</label>
     <input required name="password" ngModel class="outline  focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500  rounded-sm outline-1 p-1.5 pl-1" placeholder="Password">
   </div>
+
+  <small *ngIf="signUpForm.form.controls?.['password']?.errors?.['required'] && signUpForm.form.controls?.['password']?.['touched']"
+  class="validation-error">Password is required</small>
   
   <div class="flex justify-between m-1 ">
     <label for="Confirm">Confirm Password*</label>
     <input required name="confirmPassword" ngModel  class="outline outline-1 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 rounded-sm p-1.5 pl-1" placeholder="Confirm Password ">
   </div>
+  
+  <small *ngIf="signUpForm.form.controls?.['confirmPassword']?.errors?.['required'] && signUpForm.form.controls?.['confirmPassword']?.['touched']"
+  class="validation-error">Confirm Password is required</small>
+  
   
   <div  class="flex m-1 justify-between ">
     <label for="Gender" class="">Gender*</label>
@@ -46,11 +60,17 @@
       <label> Female</label>
     </div>
   </div>
+  <small *ngIf="signUpForm.form.controls?.['gender']?.errors?.['required'] && signUpForm.form.controls?.['gender']?.['touched']"
+  class="validation-error">Confirm Password is required</small>
   <div>
     <input type="checkbox"  required name="terms" ngModel >
     <label class ="ml-2">Agree all terms and conditions*</label>
+   
   </div>
-  <button type="submit" class =" px-2  ml-32 outline  disabled:bg-gray-400 disabled:opacity-100 disabled:outline-1 enabled:hover:bg-sky-700" [disabled]="!signUpForm.valid">Submit</button>
+  <small *ngIf="signUpForm.form.controls?.['terms']?.errors?.['required'] && signUpForm.form.controls?.['terms']?.['touched']"
+  class="validation-error">Must Agree to Privacy Policy</small>
+  <button type="submit" class =" px-2  ml-32 outline  disabled:bg-gray-400 disabled:opacity-100 disabled:outline-1 enabled:hover:bg-sky-700" >Submit</button>
+  
 </div>
 </form>
 
