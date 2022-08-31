@@ -69,7 +69,7 @@
   </div>
   <small *ngIf="signUpForm.form.controls?.['terms']?.errors?.['required'] && signUpForm.form.controls?.['terms']?.['touched']"
   class="validation-error">Must Agree to Privacy Policy</small>
-  <button type="submit" class =" px-2  ml-32 outline  disabled:bg-gray-400 disabled:opacity-100 disabled:outline-1 enabled:hover:bg-sky-700" >Submit</button>
+  <button type="submit"  [disabled]="!signUpForm.valid" class =" px-2  ml-32 outline  disabled:bg-gray-400 disabled:opacity-100 disabled:outline-1 enabled:hover:bg-sky-700" >Submit</button>
   
 </div>
 </form>
